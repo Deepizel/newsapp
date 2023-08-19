@@ -1,1 +1,43 @@
-<p>home works!</p>
+<div class=" center-content">
+  <div class="row mx-4 mt-5">
+    <div class="row">
+      <p id="keywords" class="mx-3">Filter by keywords</p>
+      <img id="searchicon" src="../../assets/search.png" alt="search icon" />
+      <input
+        type="text"
+        [(ngModel)]="searchKeywords"
+        placeholder="the most successful blog in the world"
+      />
+      <button class="mx-2" (click)="filterArticles()">Search</button>
+      <h4 class="d-flex justify-content-end">Science News</h4>
+    </div>
+
+    <div class="mt-1">
+      <p class="mb-2 mx-3">Results: {{ filteredArticles.length }}</p>
+      <hr />
+    </div>
+
+    <div class="row mt-1">
+      <div class="col-lg-3 mb-2" *ngFor="let item of filteredArticles">
+        <div class="blog">
+          <img [src]="item.image_url" alt="post-img" />
+          <div class="content">
+            <div class="d-flex mt-2">
+              <img id="dateicon" src="../../assets/Group.png" alt="" />
+              <p>{{ item.published_at | date }}</p>
+            </div>
+
+            <h5 id="title" class="mb-2 mt-1">{{ item.title }}</h5>
+            <p id="preview">
+              {{ item.summary | truncateWords : 20 }}
+            </p>
+
+            <div class="readmore">
+              <a [routerLink]="['/article', item.id]" id="readmore">Read More -></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
