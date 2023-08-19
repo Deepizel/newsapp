@@ -1,1 +1,17 @@
-<p>page works!</p>
+<div class="main">
+    <div class="row">
+        <img [src]="image" alt="">
+    </div>
+    <div class="content">
+        <div class="wrapper">
+            <div class="row py-3 px-3">
+                <h5 class="mb-2">{{title}}</h5>
+                <p>{{summary}}</p>
+                <div class="mt-3 actions d-flex justify-content-between">
+                    <a [routerLink]="['/home']">Back to home</a>
+                    <a [href]="url" >Read full article</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

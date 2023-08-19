@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   Articles: any[] = [];
   filteredArticles: any[] = [];
   searchKeywords: string = '';
+  
 
   constructor(private http: HttpClient, private service: ServiceService) {}
 
